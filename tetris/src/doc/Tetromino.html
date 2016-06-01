@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=IBM437" http-equiv="Content-Type">
+
+<title>class Tetromino - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/tetromino.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-fourTypeRotate">#fourTypeRotate</a>
+    
+    <li><a href="#method-i-getBlocks">#getBlocks</a>
+    
+    <li><a href="#method-i-getRotationType">#getRotationType</a>
+    
+    <li><a href="#method-i-getType">#getType</a>
+    
+    <li><a href="#method-i-moveDown">#moveDown</a>
+    
+    <li><a href="#method-i-moveLeft">#moveLeft</a>
+    
+    <li><a href="#method-i-moveRight">#moveRight</a>
+    
+    <li><a href="#method-i-rotateLeft">#rotateLeft</a>
+    
+    <li><a href="#method-i-rotateRight">#rotateRight</a>
+    
+    <li><a href="#method-i-twoTypeRotate">#twoTypeRotate</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ArtificialIntelligence.html">ArtificialIntelligence</a>
+  
+    <li><a href="./BackwardLBlock.html">BackwardLBlock</a>
+  
+    <li><a href="./Block.html">Block</a>
+  
+    <li><a href="./Board.html">Board</a>
+  
+    <li><a href="./LBlock.html">LBlock</a>
+  
+    <li><a href="./LineBlock.html">LineBlock</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./SBlock.html">SBlock</a>
+  
+    <li><a href="./SquareBlock.html">SquareBlock</a>
+  
+    <li><a href="./TBlock.html">TBlock</a>
+  
+    <li><a href="./TetrisWindow.html">TetrisWindow</a>
+  
+    <li><a href="./Tetromino.html">Tetromino</a>
+  
+    <li><a href="./ZBlock.html">ZBlock</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Tetromino</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="Tetromino.html">Tetromino</a> is the class that represents a
+generic tetromino, which is a shape made up of four squares called blocks. 
+Each tetromino can be moved left, right, and down and has a specific type.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="BACKWARD_L">BACKWARD_L
+        
+        <dd class="description"><p>Represents a cell filled with a backward <a href="Tetromino.html#L">L</a>
+tetromino's block</p>
+        
+      
+        <dt id="CLOCKWISE">CLOCKWISE
+        
+        <dd class="description"><p>Represents a clockwise (left) rotation</p>
+        
+      
+        <dt id="COUNTERCLOCKWISE">COUNTERCLOCKWISE
+        
+        <dd class="description"><p>Represents a counter-clockwise (right) rotation</p>
+        
+      
+        <dt id="EMPTY">EMPTY
+        
+        <dd class="description"><p>Represents an empty cell</p>
+        
+      
+        <dt id="FOUR_ROTATION">FOUR_ROTATION
+        
+        <dd class="description"><p>Represents the rotation type for tetrominoes that have four unique
+orientations (<a href="Tetromino.html#L">L</a>, Backward <a
+href="Tetromino.html#L">L</a>, and <a href="Tetromino.html#T">T</a>)</p>
+        
+      
+        <dt id="L">L
+        
+        <dd class="description"><p>Represents a cell filled with an <a href="Tetromino.html#L">L</a>
+tetromino's block</p>
+        
+      
+        <dt id="LINE">LINE
+        
+        <dd class="description"><p>Represents a cell filled with a Line tetromino's block</p>
+        
+      
+        <dt id="NO_ROTATION">NO_ROTATION
+        
+        <dd class="description"><p>Represents the rotation type for tetrominoes that are the same when rotated
+(Squares)</p>
+        
+      
+        <dt id="NUMBER_TETROMINOS">NUMBER_TETROMINOS
+        
+        <dd class="description"><p>The number of Tetrominoes.  <a href="Tetromino.html#EMPTY">EMPTY</a> is not
+included in this count because it represents empty space on the board.</p>
+        
+      
+        <dt id="S">S
+        
+        <dd class="description"><p>Represents a cell filled with an <a href="Tetromino.html#S">S</a>
+tetromino's block</p>
+        
+      
+        <dt id="SQUARE">SQUARE
+        
+        <dd class="description"><p>Represents a cell filled with a Square tetromino's block</p>
+        
+      
+        <dt id="T">T
+        
+        <dd class="description"><p>Represents a cell filled with a <a href="Tetromino.html#T">T</a>
+tetromino's block</p>
+        
+      
+        <dt id="TWO_ROTATION">TWO_ROTATION
+        
+        <dd class="description"><p>Represents the rotation type for tetrominoes that have two unique
+orientations (<a href="Tetromino.html#S">S</a>, <a
+href="Tetromino.html#Z">Z</a>, and Line)</p>
+        
+      
+        <dt id="Z">Z
+        
+        <dd class="description"><p>Represents a cell filled with a <a href="Tetromino.html#Z">Z</a>
+tetromino's block</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-fourTypeRotate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fourTypeRotate</span><span
+            class="method-args">(direction)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper that does the actual rotation for blocks with four complex
+orientations, since rotateLeft and  rotateRight do the same things. param
+direction is the direction of the rotation (clockwise or counterclockwise)</p>
+
+<p>Note:  @blocks, @orientation_index, and getOrientation(row, col) must be
+defined by the children.</p>
+          
+
+          
+          <div class="method-source-code" id="fourTypeRotate-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fourTypeRotate</span>(<span class="ruby-identifier">direction</span>)
+  <span class="ruby-identifier">old_blocks</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-ivar">@blocks</span>)
+  <span class="ruby-identifier">old_index</span> = <span class="ruby-ivar">@orientation_index</span>
+  <span class="ruby-identifier">center_block</span> = <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">first</span>()
+  <span class="ruby-identifier">ref_row</span> = <span class="ruby-identifier">center_block</span>.<span class="ruby-identifier">getRow</span>()
+  <span class="ruby-identifier">ref_col</span> = <span class="ruby-identifier">center_block</span>.<span class="ruby-identifier">getColumn</span>()
+  
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">direction</span> <span class="ruby-operator">==</span> <span class="ruby-constant">CLOCKWISE</span>)
+    <span class="ruby-ivar">@orientation_index</span> = (<span class="ruby-ivar">@orientation_index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">%</span> <span class="ruby-value">4</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@orientation_index</span> = ((<span class="ruby-ivar">@orientation_index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">+</span> <span class="ruby-value">4</span>) <span class="ruby-operator">%</span> <span class="ruby-value">4</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">getOrientation</span>(<span class="ruby-identifier">ref_row</span>, <span class="ruby-identifier">ref_col</span>)
+  
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getRow</span>()
+    <span class="ruby-identifier">col</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>()
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">col</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Board</span><span class="ruby-operator">::</span><span class="ruby-constant">ROWS</span> <span class="ruby-keyword">or</span>
+        <span class="ruby-identifier">col</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Board</span><span class="ruby-operator">::</span><span class="ruby-constant">COLUMNS</span>)
+      <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">old_blocks</span>
+      <span class="ruby-ivar">@orientation_index</span> = <span class="ruby-identifier">old_index</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fourTypeRotate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fourTypeRotate-method -->
+
+    
+      <div id="method-i-getBlocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getBlocks</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the list of blocks that make up this <a
+href="Tetromino.html">Tetromino</a></p>
+          
+
+          
+          <div class="method-source-code" id="getBlocks-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getBlocks</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@blocks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getBlocks-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getBlocks-method -->
+
+    
+      <div id="method-i-getRotationType" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getRotationType</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the rotation type for this <a href="Tetromino.html">Tetromino</a>
+(none, two, or four)</p>
+          
+
+          
+          <div class="method-source-code" id="getRotationType-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getRotationType</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@rotation_type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getRotationType-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getRotationType-method -->
+
+    
+      <div id="method-i-getType" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getType</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the type of this <a href="Tetromino.html">Tetromino</a> (eg <a
+href="Tetromino.html#SQUARE">SQUARE</a>, <a
+href="Tetromino.html#LINE">LINE</a>, etc.)</p>
+          
+
+          
+          <div class="method-source-code" id="getType-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getType</span>()
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getType-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getType-method -->
+
+    
+      <div id="method-i-moveDown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">moveDown</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Move every block in the <a href="Tetromino.html">Tetromino</a> to downward
+one unit. return true if the move was successful (no block is in the same
+position as it was before the move) and false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="moveDown-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">old_row</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getRow</span>()
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">moveDown</span>()
+    
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">old_row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getRow</span>())
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- moveDown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- moveDown-method -->
+
+    
+      <div id="method-i-moveLeft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">moveLeft</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Move every block in the <a href="Tetromino.html">Tetromino</a> to the left
+one unit. return true if the move was successful (no block is in the same
+position as it was before the move) and false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="moveLeft-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">moveLeft</span>()
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">old_col</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>()
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">moveLeft</span>()
+    
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">old_col</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>())
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- moveLeft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- moveLeft-method -->
+
+    
+      <div id="method-i-moveRight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">moveRight</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Move every block in the <a href="Tetromino.html">Tetromino</a> to the right
+one unit. return true if the move was successful (no block is in the same
+position as it was before the move) and false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="moveRight-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">moveRight</span>()
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">old_col</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>()
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">moveRight</span>()
+    
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">old_col</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>())
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- moveRight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- moveRight-method -->
+
+    
+      <div id="method-i-rotateLeft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotateLeft</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rotates the tetromino clockwise.</p>
+          
+
+          
+          <div class="method-source-code" id="rotateLeft-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotateLeft</span>()
+  <span class="ruby-comment">#Children must implement this method themselves</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rotateLeft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rotateLeft-method -->
+
+    
+      <div id="method-i-rotateRight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotateRight</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rotates the tetromino counter-clockwise</p>
+          
+
+          
+          <div class="method-source-code" id="rotateRight-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotateRight</span>()
+  <span class="ruby-comment">#Children must implement this method themselves</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rotateRight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rotateRight-method -->
+
+    
+      <div id="method-i-twoTypeRotate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">twoTypeRotate</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper that does the actual rotation for blocks with only two orientations,
+since rotateLeft and  rotateRight do the same things.</p>
+
+<p>Note:  @blocks, @rotated, getUnrotatedBlocks(row, col), and
+getRotatedBlocks(row, col) must be defined by the children.</p>
+          
+
+          
+          <div class="method-source-code" id="twoTypeRotate-source">
+            <pre><span class="ruby-comment"># File lib/tetromino.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">twoTypeRotate</span>()
+  <span class="ruby-identifier">old_blocks</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-ivar">@blocks</span>)
+  <span class="ruby-identifier">old_rotated</span> = <span class="ruby-ivar">@rotated</span>
+  <span class="ruby-identifier">center_block</span> = <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">first</span>()
+  <span class="ruby-identifier">ref_row</span> = <span class="ruby-identifier">center_block</span>.<span class="ruby-identifier">getRow</span>()
+  <span class="ruby-identifier">ref_col</span> = <span class="ruby-identifier">center_block</span>.<span class="ruby-identifier">getColumn</span>()
+  
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@rotated</span>)
+    <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">getUnrotatedBlocks</span>(<span class="ruby-identifier">ref_row</span>, <span class="ruby-identifier">ref_col</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">getRotatedBlocks</span>(<span class="ruby-identifier">ref_row</span>, <span class="ruby-identifier">ref_col</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@rotated</span> = <span class="ruby-operator">!</span><span class="ruby-ivar">@rotated</span>
+  
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">row</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getRow</span>()
+    <span class="ruby-identifier">col</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>()
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">col</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Board</span><span class="ruby-operator">::</span><span class="ruby-constant">ROWS</span> <span class="ruby-keyword">or</span>
+        <span class="ruby-identifier">col</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">Board</span><span class="ruby-operator">::</span><span class="ruby-constant">COLUMNS</span>)
+      <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">old_blocks</span>
+      <span class="ruby-ivar">@rotated</span> = <span class="ruby-identifier">old_rotated</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- twoTypeRotate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- twoTypeRotate-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

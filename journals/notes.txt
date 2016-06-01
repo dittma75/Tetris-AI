@@ -1,0 +1,73 @@
+Ant Colony
+    There is no way to win at Tetris.  Eventually a sequence of blocks that
+    screw the player over will be generated for a board of any size.
+    NP-complete to maximize number of rows removed given a piece sequence.
+    NP-hard to approximate the maximum number of rows that can be removed
+    without a loss
+    Tetris is an appealing machine learning problem
+    Value function criteria:
+        Highest hole - the hole highest up on the board
+        Blocks above highest hole - number of blocks above highest hole
+        Potential Lines - number of blocks above highest hole that fill
+            more than 8 of the row's cells
+        Smoothness - difference in height of every adjacent column, including
+            first and last column
+    Ant colony is a learning algorithm that tries to model the way worker
+    ants work.
+    Based on authors' testing, hand-coded algorithms and genetic algorithms
+    do much better than learning algorithms.
+       
+Vexed
+    Vexed is a game whose puzzle state is somewhat similar to Tetris
+    If puzzle solving is too slow, using assembly language might be helpful
+    Storing move sequences may be helpful at some point
+    Memoization might help if I find myself calling expensive functions often
+    The memoization cache can be improved by storing it in a hash table.
+    
+Tetris Learning Strategies
+    Good heuristics include:
+        Low height board
+        Few holes in the board
+    Evolutionary methods have great success in Tetris.
+    It is certain that a game of Tetris will end with no non-loss moves.
+    It is NP-Complete to maximize the number of lines made in a game.
+    Search space estimated 10^60 -> finding the best move is impossible.
+    Evolutionary algorithms take a really long time to work: 10 training
+    games took 15 hours in one instance -> I don't have time for that.
+    
+SZ Tetris
+    Uses only S blocks and Z blocks.
+    Hand-coded algorithm worked best:
+        Divide board into 5 blocks of 2 columns.
+        Place S in first or second block vertically oriented
+        Place Z in third or fourth block vertically oriented
+        Place first occurring type (S or Z) in middle to make lines
+        Switch when reaching the top.
+        These may be helpful to incorporate in my solution.
+    Features to look for:
+        height of each column
+        absolute difference between columns
+        maximum height across columns
+        holes in the board
+        
+Basic Tetris Strategies
+    Holes are bad
+    Piling on top of holes is bad
+    Gutters that can only be filled with line blocks are bad
+    Groups of adjacent holes are bad
+    
+The Only Good One
+    Tetris AI use evaluation functions (heuristic for game board)
+    AI figures out the best move for this piece by trying to place the
+        current piece and the next piece.
+    Good features:
+        Landing height - height where last piece was added
+        Lines cleared last move * number of cells of piece removed
+        Row transitions - number of horizontal transitions
+        Holes - empty cells that aren't accessible from the top
+        Cumulative wells - weighted sum of well depth (hole with top exposed)
+            weighted so that well of 1 is 1, well of 2 is 3, well of 3 is 6
+        Row holes - # of rows with at least one hole
+    Learning algorithms could take weeks to make progress on state-of-the-art
+        hardware, so I shouldn't attempt a learning algorithm
+    

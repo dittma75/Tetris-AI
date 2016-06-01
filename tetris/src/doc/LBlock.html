@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=IBM437" http-equiv="Content-Type">
+
+<title>class LBlock - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/l_block.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Tetromino.html">Tetromino</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-getOrientation">#getOrientation</a>
+    
+    <li><a href="#method-i-rotateLeft">#rotateLeft</a>
+    
+    <li><a href="#method-i-rotateRight">#rotateRight</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ArtificialIntelligence.html">ArtificialIntelligence</a>
+  
+    <li><a href="./BackwardLBlock.html">BackwardLBlock</a>
+  
+    <li><a href="./Block.html">Block</a>
+  
+    <li><a href="./Board.html">Board</a>
+  
+    <li><a href="./LBlock.html">LBlock</a>
+  
+    <li><a href="./LineBlock.html">LineBlock</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./SBlock.html">SBlock</a>
+  
+    <li><a href="./SquareBlock.html">SquareBlock</a>
+  
+    <li><a href="./TBlock.html">TBlock</a>
+  
+    <li><a href="./TetrisWindow.html">TetrisWindow</a>
+  
+    <li><a href="./Tetromino.html">Tetromino</a>
+  
+    <li><a href="./ZBlock.html">ZBlock</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class LBlock</h1>
+
+  <div id="description" class="description">
+    
+<p>An <a href="LBlock.html">LBlock</a> represents the <a
+href="Tetromino.html">Tetromino</a> that looks like this: __X__ __X__
+<em>_XX</em> <em>_</em></p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(row, col)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructor param row is the row of the block used to position all other
+blocks in the <a href="LBlock.html">LBlock</a>. param col is the column of
+the block used to position all other blocks in the <a
+href="LBlock.html">LBlock</a>.</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/l_block.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-ivar">@type</span> = <span class="ruby-constant">L</span>
+  <span class="ruby-ivar">@orientation_index</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@rotation_type</span> = <span class="ruby-constant">FOUR_ROTATION</span>
+  <span class="ruby-ivar">@blocks</span> = <span class="ruby-identifier">getOrientation</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-getOrientation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getOrientation</span><span
+            class="method-args">(row, col)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>param row is the row of the center reference <a href="Block.html">Block</a>
+param col is the column of the center reference <a
+href="Block.html">Block</a> return an array of four Blocks that represent
+the orientation of the <a href="Tetromino.html">Tetromino</a></p>
+          
+
+          
+          <div class="method-source-code" id="getOrientation-source">
+            <pre><span class="ruby-comment"># File lib/l_block.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getOrientation</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">case</span> (<span class="ruby-ivar">@orientation_index</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> [
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    ]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> [
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span>)
+    ]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">return</span> [
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    ]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">return</span> [
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>),
+      <span class="ruby-constant">Block</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">col</span>)
+    ]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">abort</span>(<span class="ruby-string">'No such rotation orientation'</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getOrientation-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getOrientation-method -->
+
+    
+      <div id="method-i-rotateLeft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotateLeft</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rotate the <a href="LBlock.html">LBlock</a> clockwise.  The result is the
+same as rotating right.</p>
+          
+
+          
+          <div class="method-source-code" id="rotateLeft-source">
+            <pre><span class="ruby-comment"># File lib/l_block.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotateLeft</span>()
+  <span class="ruby-identifier">fourTypeRotate</span>(<span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">CLOCKWISE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rotateLeft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rotateLeft-method -->
+
+    
+      <div id="method-i-rotateRight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotateRight</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rotate the <a href="LBlock.html">LBlock</a> counterclockwise.  The result
+is the same as rotating left.</p>
+          
+
+          
+          <div class="method-source-code" id="rotateRight-source">
+            <pre><span class="ruby-comment"># File lib/l_block.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotateRight</span>()
+  <span class="ruby-identifier">fourTypeRotate</span>(<span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">COUNTERCLOCKWISE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rotateRight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rotateRight-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

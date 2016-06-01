@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=IBM437" http-equiv="Content-Type">
+
+<title>class Object - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>spec/artificial_intelligence_spec.rb
+    <li>spec/tetromino_spec.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">BasicObject
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-checkTetOnBoard">#checkTetOnBoard</a>
+    
+    <li><a href="#method-i-placeTetromino">#placeTetromino</a>
+    
+    <li><a href="#method-i-placeTetrominoLeft">#placeTetrominoLeft</a>
+    
+    <li><a href="#method-i-placeTetrominoRight">#placeTetrominoRight</a>
+    
+    <li><a href="#method-i-rotate_compare">#rotate_compare</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ArtificialIntelligence.html">ArtificialIntelligence</a>
+  
+    <li><a href="./BackwardLBlock.html">BackwardLBlock</a>
+  
+    <li><a href="./Block.html">Block</a>
+  
+    <li><a href="./Board.html">Board</a>
+  
+    <li><a href="./LBlock.html">LBlock</a>
+  
+    <li><a href="./LineBlock.html">LineBlock</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./SBlock.html">SBlock</a>
+  
+    <li><a href="./SquareBlock.html">SquareBlock</a>
+  
+    <li><a href="./TBlock.html">TBlock</a>
+  
+    <li><a href="./TetrisWindow.html">TetrisWindow</a>
+  
+    <li><a href="./Tetromino.html">Tetromino</a>
+  
+    <li><a href="./ZBlock.html">ZBlock</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Object</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-checkTetOnBoard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkTetOnBoard</span><span
+            class="method-args">(tet, board)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check that the tetromino is actually on the board param tet is the
+tetromino that should be on the board param board is the board state</p>
+          
+
+          
+          <div class="method-source-code" id="checkTetOnBoard-source">
+            <pre><span class="ruby-comment"># File spec/tetromino_spec.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkTetOnBoard</span>(<span class="ruby-identifier">tet</span>, <span class="ruby-identifier">board</span>)
+  <span class="ruby-identifier">tet</span>.<span class="ruby-identifier">getBlocks</span>().<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">board</span>.<span class="ruby-identifier">getBoard</span>()[<span class="ruby-identifier">block</span>.<span class="ruby-identifier">getRow</span>()][<span class="ruby-identifier">block</span>.<span class="ruby-identifier">getColumn</span>()]).<span class="ruby-identifier">to</span> <span class="ruby-identifier">eq</span>(<span class="ruby-identifier">tet</span>.<span class="ruby-identifier">getType</span>())
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- checkTetOnBoard-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- checkTetOnBoard-method -->
+
+    
+      <div id="method-i-placeTetromino" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">placeTetromino</span><span
+            class="method-args">(tetromino)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to place the tetromino at the bototm of the board param
+tetromino is the tetromino to place return the tetromino placed as far down
+as possible on the board</p>
+          
+
+          
+          <div class="method-source-code" id="placeTetromino-source">
+            <pre><span class="ruby-comment"># File spec/artificial_intelligence_spec.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">placeTetromino</span>(<span class="ruby-identifier">tetromino</span>)
+  <span class="ruby-identifier">previous_tet</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-identifier">tetromino</span>)
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">tetromino</span>.<span class="ruby-identifier">moveDown</span>())
+    <span class="ruby-identifier">previous_tet</span>.<span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">tetromino</span> = <span class="ruby-identifier">previous_tet</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tetromino</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- placeTetromino-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- placeTetromino-method -->
+
+    
+      <div id="method-i-placeTetrominoLeft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">placeTetrominoLeft</span><span
+            class="method-args">(tetromino)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to place the tetromino on the left side of the board param
+tetromino is the tetromino to place return the tetromino placed as far left
+as possible on the board</p>
+          
+
+          
+          <div class="method-source-code" id="placeTetrominoLeft-source">
+            <pre><span class="ruby-comment"># File spec/artificial_intelligence_spec.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">placeTetrominoLeft</span>(<span class="ruby-identifier">tetromino</span>)
+    <span class="ruby-identifier">previous_tet</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-identifier">tetromino</span>)
+    <span class="ruby-keyword">while</span> (<span class="ruby-identifier">tetromino</span>.<span class="ruby-identifier">moveLeft</span>())
+      <span class="ruby-identifier">previous_tet</span>.<span class="ruby-identifier">moveLeft</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tetromino</span> = <span class="ruby-identifier">previous_tet</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">placeTetromino</span>(<span class="ruby-identifier">tetromino</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- placeTetrominoLeft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- placeTetrominoLeft-method -->
+
+    
+      <div id="method-i-placeTetrominoRight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">placeTetrominoRight</span><span
+            class="method-args">(tetromino)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper function to place the tetromino on the right side of the board param
+tetromino is the tetromino to place return the tetromino placed as far
+right as possible on the board</p>
+          
+
+          
+          <div class="method-source-code" id="placeTetrominoRight-source">
+            <pre><span class="ruby-comment"># File spec/artificial_intelligence_spec.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">placeTetrominoRight</span>(<span class="ruby-identifier">tetromino</span>)
+  <span class="ruby-identifier">previous_tet</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-identifier">tetromino</span>)
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">tetromino</span>.<span class="ruby-identifier">moveRight</span>())
+    <span class="ruby-identifier">previous_tet</span>.<span class="ruby-identifier">moveRight</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">tetromino</span> = <span class="ruby-identifier">previous_tet</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">placeTetromino</span>(<span class="ruby-identifier">tetromino</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- placeTetrominoRight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- placeTetrominoRight-method -->
+
+    
+      <div id="method-i-rotate_compare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rotate_compare</span><span
+            class="method-args">(tet1, tet2)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rotate comparison helper function.  Both tetrominoes should have blocks in
+equivalent positions. param tet1 is the first tetromino to compare param
+tet2 is the second tetromino to compare</p>
+          
+
+          
+          <div class="method-source-code" id="rotate_compare-source">
+            <pre><span class="ruby-comment"># File spec/tetromino_spec.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rotate_compare</span>(<span class="ruby-identifier">tet1</span>, <span class="ruby-identifier">tet2</span>)
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">tet1</span>.<span class="ruby-identifier">getBlocks</span>().<span class="ruby-identifier">count</span>()
+    <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">tet1</span>.<span class="ruby-identifier">getBlocks</span>()[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">getColumn</span>())
+      .<span class="ruby-identifier">to</span> <span class="ruby-identifier">eq</span>(<span class="ruby-identifier">tet2</span>.<span class="ruby-identifier">getBlocks</span>()[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">getColumn</span>())
+    <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">tet1</span>.<span class="ruby-identifier">getBlocks</span>()[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">getRow</span>())
+      .<span class="ruby-identifier">to</span> <span class="ruby-identifier">eq</span>(<span class="ruby-identifier">tet2</span>.<span class="ruby-identifier">getBlocks</span>()[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">getRow</span>())
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rotate_compare-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rotate_compare-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

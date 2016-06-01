@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=IBM437" http-equiv="Content-Type">
+
+<title>class TetrisWindow - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/tetris_window.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Gosu::Window
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-buttonPressed">#buttonPressed</a>
+    
+    <li><a href="#method-i-doAIMove">#doAIMove</a>
+    
+    <li><a href="#method-i-doUserMove">#doUserMove</a>
+    
+    <li><a href="#method-i-draw">#draw</a>
+    
+    <li><a href="#method-i-generateAIMove">#generateAIMove</a>
+    
+    <li><a href="#method-i-generateTetromino">#generateTetromino</a>
+    
+    <li><a href="#method-i-getGravityThreshold">#getGravityThreshold</a>
+    
+    <li><a href="#method-i-getLevel">#getLevel</a>
+    
+    <li><a href="#method-i-gravityMove">#gravityMove</a>
+    
+    <li><a href="#method-i-moveDown">#moveDown</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+    <li><a href="#method-i-updateScore">#updateScore</a>
+    
+    <li><a href="#method-i-userMoveDown">#userMoveDown</a>
+    
+    <li><a href="#method-i-userMoveRotate">#userMoveRotate</a>
+    
+    <li><a href="#method-i-userMoveSideways">#userMoveSideways</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ArtificialIntelligence.html">ArtificialIntelligence</a>
+  
+    <li><a href="./BackwardLBlock.html">BackwardLBlock</a>
+  
+    <li><a href="./Block.html">Block</a>
+  
+    <li><a href="./Board.html">Board</a>
+  
+    <li><a href="./LBlock.html">LBlock</a>
+  
+    <li><a href="./LineBlock.html">LineBlock</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./SBlock.html">SBlock</a>
+  
+    <li><a href="./SquareBlock.html">SquareBlock</a>
+  
+    <li><a href="./TBlock.html">TBlock</a>
+  
+    <li><a href="./TetrisWindow.html">TetrisWindow</a>
+  
+    <li><a href="./Tetromino.html">Tetromino</a>
+  
+    <li><a href="./ZBlock.html">ZBlock</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TetrisWindow</h1>
+
+  <div id="description" class="description">
+    
+<p>A <a href="TetrisWindow.html">TetrisWindow</a> is the window the renders
+the concept of the Tetris game board as an image that the user can see.
+Gosu library information from: <a
+href="https://github.com/gosu/gosu/wiki/Ruby-Tutorial">github.com/gosu/gosu/wiki/Ruby-Tutorial</a></p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="AI_MODE">AI_MODE
+        
+        <dd class="description"><p>Flag for the game's AI mode, which is the default</p>
+        
+      
+        <dt id="GRAVITY_MOVE">GRAVITY_MOVE
+        
+        <dd class="description"><p>Index for the gravity moves in the move sequence array</p>
+        
+      
+        <dt id="ROTATION_MOVE">ROTATION_MOVE
+        
+        <dd class="description"><p>Index for the rotation moves in the move sequence array</p>
+        
+      
+        <dt id="SCREEN_HEIGHT">SCREEN_HEIGHT
+        
+        <dd class="description"><p>Height of screen in pixels</p>
+        
+      
+        <dt id="SCREEN_WIDTH">SCREEN_WIDTH
+        
+        <dd class="description"><p>Width of screen in pixels</p>
+        
+      
+        <dt id="SIDEWAYS_MOVE">SIDEWAYS_MOVE
+        
+        <dd class="description"><p>Index for the horizontal moves in the move sequence array</p>
+        
+      
+        <dt id="START_COL">START_COL
+        
+        <dd class="description"><p>Starting column for a new <a href="Tetromino.html">Tetromino</a></p>
+        
+      
+        <dt id="START_ROW">START_ROW
+        
+        <dd class="description"><p>Starting row for a new <a href="Tetromino.html">Tetromino</a></p>
+        
+      
+        <dt id="USER_MODE">USER_MODE
+        
+        <dd class="description"><p>Flag for the game's user-controlled mode, which is for debugging.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(mode)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructor param mode is the game mode to use.  It will be <a
+href="TetrisWindow.html#AI_MODE">AI_MODE</a> unless the program is in debug
+mode.</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-ivar">@mode</span> = <span class="ruby-identifier">mode</span>
+  <span class="ruby-comment"># Make the game window (not full screen)</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-constant">SCREEN_WIDTH</span>, <span class="ruby-constant">SCREEN_HEIGHT</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">caption</span> = <span class="ruby-string">'Tetris'</span>
+  <span class="ruby-ivar">@background_image</span> = <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), 
+      <span class="ruby-string">&quot;assets/background.png&quot;</span>
+    ),
+    <span class="ruby-value">:tileable</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  )
+  
+  <span class="ruby-comment"># Tracks whether a button is pressed or not</span>
+  <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">false</span>
+  
+  <span class="ruby-comment"># Tracks whether we can move or not</span>
+  <span class="ruby-ivar">@can_move</span> = <span class="ruby-keyword">true</span>
+  
+  <span class="ruby-comment"># Timer for gravity move</span>
+  <span class="ruby-ivar">@gravity_counter</span> = <span class="ruby-value">0</span>;
+  
+  <span class="ruby-comment"># Lines made so far</span>
+  <span class="ruby-ivar">@lines_made</span> = <span class="ruby-value">0</span>
+  
+  <span class="ruby-comment"># Current score</span>
+  <span class="ruby-ivar">@score</span> = <span class="ruby-value">0</span>
+  
+  <span class="ruby-comment"># The Tetris board</span>
+  <span class="ruby-ivar">@board</span> = <span class="ruby-constant">Board</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-comment"># The current tetromino</span>
+  <span class="ruby-ivar">@tetromino</span> = <span class="ruby-identifier">generateTetromino</span>(<span class="ruby-constant">START_ROW</span>, <span class="ruby-constant">START_COL</span>)
+  <span class="ruby-comment"># Add the tetromino to the board</span>
+  <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">addTetromino</span>(<span class="ruby-ivar">@tetromino</span>)
+  
+  <span class="ruby-ivar">@move_sequence</span> = <span class="ruby-identifier">generateAIMove</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-buttonPressed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buttonPressed</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return true if any of the buttons used for controls are being pressed and
+false otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="buttonPressed-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">buttonPressed</span>()
+  <span class="ruby-keyword">return</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbLeft</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbRight</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbDown</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpLeft</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpRight</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpButton0</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbA</span>) <span class="ruby-keyword">or</span>
+          <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbD</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- buttonPressed-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- buttonPressed-method -->
+
+    
+      <div id="method-i-doAIMove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doAIMove</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Process for unpacking the generated move sequence into a set of left,
+right, down, and rotate moves.  The AI will do gravity moves incurred
+during its thinking time first, followed by rotate moves, then move the
+tetromino left or right into place. Once the move is completed, the AI will
+move the tetromino downward until it falls into place. return true if this
+move placed a tetromino and false otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="doAIMove-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doAIMove</span>()
+  <span class="ruby-ivar">@can_move</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-comment"># Account for the gravity moves spent while thinking first</span>
+  <span class="ruby-comment"># The tetromino might have been placed.</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">GRAVITY_MOVE</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">GRAVITY_MOVE</span>] <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-comment"># Do the rotation before doing anything else</span>
+  <span class="ruby-comment"># Tetromino definitely wasn't placed.</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">ROTATION_MOVE</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">ROTATION_MOVE</span>] <span class="ruby-operator">==</span> <span class="ruby-value">3</span>)
+      <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">rotateRight</span>()
+      <span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">ROTATION_MOVE</span>] = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">rotateLeft</span>()
+      <span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">ROTATION_MOVE</span>] <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-comment"># Move the tetromino into place laterally.  The</span>
+  <span class="ruby-comment"># Tetromino definitely wasn't placed.</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">SIDEWAYS_MOVE</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">SIDEWAYS_MOVE</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>)
+      <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">moveLeft</span>()
+      <span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">SIDEWAYS_MOVE</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">moveRight</span>()
+      <span class="ruby-ivar">@move_sequence</span>[<span class="ruby-constant">SIDEWAYS_MOVE</span>] <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-comment"># Drop it into position as quickly as possible</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- doAIMove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- doAIMove-method -->
+
+    
+      <div id="method-i-doUserMove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doUserMove</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles the game logic for a human user playing Tetris return true if the
+<a href="Tetromino.html">Tetromino</a> was placed, false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="doUserMove-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doUserMove</span>()
+  <span class="ruby-comment"># @can_move will become false if we try to do an invalid move.</span>
+  <span class="ruby-ivar">@can_move</span> = <span class="ruby-keyword">true</span>
+  
+  <span class="ruby-comment"># Keep user from overflowing the user input by holding a button down.    </span>
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">buttonPressed</span>())
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Let the user move the tetromino if a button isn't currently down</span>
+  <span class="ruby-comment"># and gravity hasn't eliminated our ability to move.</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-operator">!</span><span class="ruby-ivar">@button_down</span>)
+    <span class="ruby-ivar">@can_move</span> = <span class="ruby-identifier">userMoveSideways</span>()
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@can_move</span>)
+      <span class="ruby-ivar">@can_move</span> = <span class="ruby-identifier">userMoveRotate</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tetromino_placed</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">userMoveDown</span>()
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tetromino_placed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- doUserMove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- doUserMove-method -->
+
+    
+      <div id="method-i-draw" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Repaint the background and board on the screen.</p>
+          
+
+          
+          <div class="method-source-code" id="draw-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw</span>()
+  <span class="ruby-ivar">@background_image</span>.<span class="ruby-identifier">draw</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
+  <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">draw</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- draw-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- draw-method -->
+
+    
+      <div id="method-i-generateAIMove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generateAIMove</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate the best move possible using the AI class. return the sequence
+corresponding to the best move in the format [gravity_moves, rotate_moves,
+sideways_moves, downward_moves]</p>
+          
+
+          
+          <div class="method-source-code" id="generateAIMove-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generateAIMove</span>()
+  <span class="ruby-identifier">ai</span> = <span class="ruby-constant">ArtificialIntelligence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@board</span>, <span class="ruby-ivar">@tetromino</span>)
+  <span class="ruby-identifier">move_sequence</span>, <span class="ruby-identifier">elapsed_time</span> = <span class="ruby-identifier">ai</span>.<span class="ruby-identifier">getBestMove</span>()
+  <span class="ruby-identifier">gravity_moves_per_second</span> = <span class="ruby-value">60</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">getGravityThreshold</span>()
+  <span class="ruby-identifier">gravity_moves</span> = (<span class="ruby-identifier">elapsed_time</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">gravity_moves_per_second</span>).<span class="ruby-identifier">floor</span>()
+  <span class="ruby-identifier">gravity_remainder</span> = (<span class="ruby-identifier">elapsed_time</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-identifier">gravity_moves_per_second</span>)).<span class="ruby-identifier">floor</span>()
+  <span class="ruby-ivar">@gravity_counter</span> = <span class="ruby-identifier">getGravityThreshold</span>() <span class="ruby-operator">-</span> <span class="ruby-identifier">gravity_remainder</span>
+  <span class="ruby-identifier">move_sequence</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">gravity_moves</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">move_sequence</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- generateAIMove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- generateAIMove-method -->
+
+    
+      <div id="method-i-generateTetromino" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generateTetromino</span><span
+            class="method-args">(row, col)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Randomly generates the next tetromino param row is the starting row of the
+tetromino param col is the starting column of the tetromino return a
+randomly picked tetromino from the list of all possible tetrominos.</p>
+          
+
+          
+          <div class="method-source-code" id="generateTetromino-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generateTetromino</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">case</span> (<span class="ruby-constant">Random</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">NUMBER_TETROMINOS</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">SQUARE</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">SquareBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">LINE</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">LineBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">T</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">TBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">L</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">LBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">BACKWARD_L</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">BackwardLBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">Z</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">ZBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Tetromino</span><span class="ruby-operator">::</span><span class="ruby-constant">S</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">SBlock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">abort</span>(<span class="ruby-string">'Invalid tetromino generated'</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- generateTetromino-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- generateTetromino-method -->
+
+    
+      <div id="method-i-getGravityThreshold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getGravityThreshold</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gravity threshold is calculated by using a starting threshold of 60, which
+means that the current tetromino will move down once due to gravity after
+60 iterations of the game loop.  The gravity threshold is reduced by 5 for
+every 10 lines made, but it will never be less than 10. return the number
+of iterations of the game loop that occur before the current <a
+href="Tetromino.html">Tetromino</a> moves down once due to gravity.</p>
+          
+
+          
+          <div class="method-source-code" id="getGravityThreshold-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getGravityThreshold</span>()
+  <span class="ruby-keyword">return</span> [<span class="ruby-value">5</span>, <span class="ruby-value">40</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span> * <span class="ruby-identifier">getLevel</span>()].<span class="ruby-identifier">max</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getGravityThreshold-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getGravityThreshold-method -->
+
+    
+      <div id="method-i-getLevel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getLevel</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the current "level" of the game, which is the truncated result of
+dividing the number of lines made so far by 10.</p>
+          
+
+          
+          <div class="method-source-code" id="getLevel-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 359</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">getLevel</span>()
+  <span class="ruby-keyword">return</span> (<span class="ruby-ivar">@lines_made</span> <span class="ruby-operator">/</span> <span class="ruby-value">10</span>).<span class="ruby-identifier">floor</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getLevel-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getLevel-method -->
+
+    
+      <div id="method-i-gravityMove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gravityMove</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If gravity has taken over, do an automatic moveDown() and reset the gravity
+counter return true if the tetromino can still move and false otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="gravityMove-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gravityMove</span>()
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@gravity_counter</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">getGravityThreshold</span>())
+    <span class="ruby-ivar">@gravity_counter</span> = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@can_move</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gravityMove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gravityMove-method -->
+
+    
+      <div id="method-i-moveDown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">moveDown</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles moving a <a href="Tetromino.html">Tetromino</a> while checking for
+a collision. Used for downward moves for both gravity and user input.
+return true if the move is valid and false otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="moveDown-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-keyword">return</span> (<span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">moveDown</span>() <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@board</span>.<span class="ruby-identifier">causesCollision?</span>(<span class="ruby-ivar">@tetromino</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- moveDown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- moveDown-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the board at every iteration of the game loop.</p>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>()
+  <span class="ruby-comment"># Copy the tetromino so that we can back out of a bad move.</span>
+  <span class="ruby-identifier">previous_tetromino</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-ivar">@tetromino</span>)
+  
+  <span class="ruby-comment"># Remove the tetromino from the board so that it doesn't get in the way.</span>
+  <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">removeTetromino</span>(<span class="ruby-ivar">@tetromino</span>)
+
+  <span class="ruby-comment"># Store validity of gravity move.  If the gravity move</span>
+  <span class="ruby-comment"># wasn't valid, then we hit the bottom and the tetromino</span>
+  <span class="ruby-comment"># should be placed on the board without doing any move logic.</span>
+  <span class="ruby-identifier">tetromino_placed</span> = <span class="ruby-operator">!</span><span class="ruby-identifier">gravityMove</span>()
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">tetromino_placed</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">USER_MODE</span>)
+      <span class="ruby-identifier">tetromino_placed</span> = <span class="ruby-identifier">doUserMove</span>()
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">tetromino_placed</span> = <span class="ruby-identifier">doAIMove</span>()
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># The tetromino hit the bottom of the board or</span>
+  <span class="ruby-comment"># the top of non-empty block, so this tetromino</span>
+  <span class="ruby-comment"># can no longer be moved.</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">tetromino_placed</span>)
+    <span class="ruby-comment"># Handle a race-condition between gravity and user/AI downward moves</span>
+    <span class="ruby-comment"># that makes the downward-moving tetromino stop short.</span>
+    <span class="ruby-identifier">placed_tetromino</span> = <span class="ruby-constant">DeepClone</span>.<span class="ruby-identifier">clone</span>(<span class="ruby-identifier">previous_tetromino</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">previous_tetromino</span>.<span class="ruby-identifier">moveDown</span>() <span class="ruby-keyword">and</span>
+        <span class="ruby-operator">!</span><span class="ruby-ivar">@board</span>.<span class="ruby-identifier">causesCollision?</span>(<span class="ruby-identifier">previous_tetromino</span>))
+      <span class="ruby-identifier">placed_tetromino</span>.<span class="ruby-identifier">moveDown</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># Add the previous Tetromino because it was the last valid</span>
+    <span class="ruby-comment"># state for this Tetromino</span>
+    <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">addTetromino</span>(<span class="ruby-identifier">placed_tetromino</span>)
+    <span class="ruby-identifier">lines_cleared</span> = <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">clearLines</span>()
+    <span class="ruby-ivar">@lines_made</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">lines_cleared</span>
+    <span class="ruby-identifier">updateScore</span>(<span class="ruby-identifier">lines_cleared</span>)
+    <span class="ruby-ivar">@tetromino</span> = <span class="ruby-identifier">generateTetromino</span>(<span class="ruby-constant">START_ROW</span>, <span class="ruby-constant">START_COL</span>)
+    <span class="ruby-comment"># If a tetromino is generated on top of an existing tetromino,</span>
+    <span class="ruby-comment"># the game is over.  Print the number of lines made.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@board</span>.<span class="ruby-identifier">causesCollision?</span>(<span class="ruby-ivar">@tetromino</span>))
+      <span class="ruby-identifier">abort</span>(<span class="ruby-node">&quot;Game Over.  #{@lines_made} lines made; Score: #{@score}\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">addTetromino</span>(<span class="ruby-ivar">@tetromino</span>)
+    <span class="ruby-ivar">@gravity_counter</span> = <span class="ruby-value">0</span>
+    
+    <span class="ruby-comment"># Generate the next AI move if the AI is playing.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">AI_MODE</span>)
+      <span class="ruby-ivar">@move_sequence</span> = <span class="ruby-identifier">generateAIMove</span>()
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># If a block movement for the tetromino was invalid,</span>
+    <span class="ruby-comment"># put the old tetromino back.  In essence, cancel the move.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-operator">!</span><span class="ruby-ivar">@can_move</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">causesCollision?</span>(<span class="ruby-ivar">@tetromino</span>))
+      <span class="ruby-ivar">@tetromino</span> = <span class="ruby-identifier">previous_tetromino</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Update the board</span>
+    <span class="ruby-ivar">@board</span>.<span class="ruby-identifier">addTetromino</span>(<span class="ruby-ivar">@tetromino</span>)
+    
+    <span class="ruby-comment"># Update the gravity counter</span>
+    <span class="ruby-ivar">@gravity_counter</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+      <div id="method-i-updateScore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">updateScore</span><span
+            class="method-args">(lines_cleared)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the score based on the standard Tetris scoring system, which
+multiplies a scoring factor by the current level plus 1 (level 0 is first)
+Scoring factors are:</p>
+
+<pre>40 for 1 line
+100 for 2 lines
+300 for 3 lines
+1200 for 4 lines (a Tetris)</pre>
+          
+
+          
+          <div class="method-source-code" id="updateScore-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">updateScore</span>(<span class="ruby-identifier">lines_cleared</span>)
+  <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">case</span> (<span class="ruby-identifier">lines_cleared</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">40</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">100</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+    <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">300</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+    <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">1200</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">score_factor</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@score</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">score_factor</span> * (<span class="ruby-identifier">getLevel</span>() <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- updateScore-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- updateScore-method -->
+
+    
+      <div id="method-i-userMoveDown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">userMoveDown</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Moves the current <a href="Tetromino.html">Tetromino</a> down if the button
+corresponding to a downward move is pressed. Side effect: takes note that a
+button has been pressed. return true if the move is valid and false
+otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="userMoveDown-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">userMoveDown</span>()
+  <span class="ruby-keyword">if</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbDown</span>) <span class="ruby-keyword">or</span>
+      <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpButton0</span>))
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">moveDown</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- userMoveDown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- userMoveDown-method -->
+
+    
+      <div id="method-i-userMoveRotate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">userMoveRotate</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do a rotate move if the user is pressing the button that corresponds to a
+rotate move. return true if the move was valid and false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="userMoveRotate-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">userMoveRotate</span>()
+  <span class="ruby-comment"># Rotate left</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbA</span>))
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">rotateLeft</span>()
+  <span class="ruby-comment">#Rotate right</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbD</span>))
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">rotateRight</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- userMoveRotate-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- userMoveRotate-method -->
+
+    
+      <div id="method-i-userMoveSideways" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">userMoveSideways</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Moves the current <a href="Tetromino.html">Tetromino</a> left if the button
+corresponding to a left move is pressed and right if the button
+corresponding to a right move is pressed. Side effect: takes note that a
+button has been pressed. return true if the move is valid and false
+otherwise.</p>
+          
+
+          
+          <div class="method-source-code" id="userMoveSideways-source">
+            <pre><span class="ruby-comment"># File lib/tetris_window.rb, line 293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">userMoveSideways</span>()
+  <span class="ruby-comment"># Left movement</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbLeft</span>) <span class="ruby-keyword">or</span> 
+      <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpLeft</span>))
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">moveLeft</span>()
+  <span class="ruby-comment"># Right movement</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">KbRight</span>) <span class="ruby-keyword">or</span>
+      <span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-identifier">button_down?</span>(<span class="ruby-constant">Gosu</span><span class="ruby-operator">::</span><span class="ruby-constant">GpRight</span>))
+    <span class="ruby-ivar">@button_down</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@tetromino</span>.<span class="ruby-identifier">moveRight</span>()
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># If there was no user input, the move is</span>
+  <span class="ruby-comment"># still valid.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- userMoveSideways-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- userMoveSideways-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
